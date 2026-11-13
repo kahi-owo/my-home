@@ -1,0 +1,389 @@
+.adm {
+  --adm-bg: #ffffff;
+  --adm-soft: #f4f5f2;
+  --adm-line: #dcdfd6;
+  --adm-text: #2b2d28;
+  --adm-sub: #70756a;
+  --adm-main: #5f7a45;
+  --adm-warn: #b26a00;
+  --adm-err: #c0392b;
+  --adm-width: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--adm-width);
+  max-width: 100vw;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  border-left: 1px solid var(--adm-line);
+  box-shadow: -6px 0 24px rgba(0, 0, 0, 0.12);
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.adm.min {
+  bottom: auto;
+  width: auto;
+  border-bottom: 1px solid var(--adm-line);
+  border-bottom-left-radius: 12px;
+}
+
+.adm.min .adm-body,
+.adm.min .adm-foot,
+.adm.min .adm-head strong {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  body.adm-open:not(.adm-min) {
+    padding-right: 400px;
+  }
+}
+
+.adm-head,
+.adm-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--adm-soft);
+}
+
+.adm-head {
+  border-bottom: 1px solid var(--adm-line);
+}
+
+.adm-foot {
+  border-top: 1px solid var(--adm-line);
+}
+
+.adm-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px 24px;
+}
+
+.adm-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.adm-btn,
+.adm-mini {
+  font: inherit;
+  color: var(--adm-text);
+  background: var(--adm-bg);
+  border: 1px solid var(--adm-line);
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.adm-mini {
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.adm-btn:hover,
+.adm-mini:hover {
+  border-color: var(--adm-main);
+}
+
+.adm-btn:focus-visible,
+.adm-mini:focus-visible,
+.adm-input:focus-visible {
+  outline: 2px solid var(--adm-main);
+  outline-offset: 1px;
+}
+
+.adm-btn:disabled,
+.adm-mini:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.adm-btn.primary {
+  background: var(--adm-main);
+  border-color: var(--adm-main);
+  color: #fff;
+}
+
+.adm-btn.add {
+  width: 100%;
+  border-style: dashed;
+  color: var(--adm-sub);
+}
+
+.adm-mini.danger {
+  color: var(--adm-err);
+}
+
+.adm-status {
+  font-size: 13px;
+  color: var(--adm-sub);
+}
+
+.adm-status.warn { color: var(--adm-warn); }
+.adm-status.ok { color: var(--adm-main); }
+.adm-status.err { color: var(--adm-err); }
+
+.adm-msg {
+  padding: 28px 6px;
+  text-align: center;
+}
+
+.adm-msg h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.adm-msg p {
+  color: var(--adm-sub);
+  margin-bottom: 16px;
+}
+
+.adm-msg .adm-row {
+  justify-content: center;
+}
+
+.adm-note {
+  background: #fff6e0;
+  border: 1px solid #f0d9a0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.adm-who {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--adm-sub);
+}
+
+.adm-who span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adm-sec {
+  border: 1px solid var(--adm-line);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: var(--adm-bg);
+}
+
+.adm-sec > summary {
+  padding: 11px 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adm-sec-body {
+  padding: 4px 12px 12px;
+}
+
+.adm-sec-body h4 {
+  margin: 12px 0 8px;
+  font-size: 14px;
+}
+
+.adm-field {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.adm-field > span {
+  display: block;
+  font-size: 13px;
+  color: var(--adm-sub);
+  margin-bottom: 4px;
+}
+
+.adm-field small,
+.adm-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--adm-sub);
+  margin-top: 4px;
+}
+
+.adm-hint {
+  margin: 0 0 10px;
+}
+
+.adm-input {
+  font: inherit;
+  color: var(--adm-text);
+  background: var(--adm-bg);
+  border: 1px solid var(--adm-line);
+  border-radius: 8px;
+  padding: 7px 9px;
+  width: 100%;
+  min-width: 0;
+}
+
+.adm-row > .adm-input {
+  flex: 1;
+  width: auto;
+}
+
+.adm-input:disabled {
+  background: var(--adm-soft);
+  color: var(--adm-sub);
+}
+
+.adm-thumb {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--adm-line);
+  background: var(--adm-soft);
+}
+
+.adm-color {
+  width: 56px;
+  height: 34px;
+  padding: 2px;
+  border: 1px solid var(--adm-line);
+  border-radius: 8px;
+  background: var(--adm-bg);
+  cursor: pointer;
+}
+
+.adm-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.adm-card {
+  border: 1px solid var(--adm-line);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: var(--adm-soft);
+}
+
+.adm-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.adm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 14px;
+}
+
+.adm-sheet {
+  --adm-line: #dcdfd6;
+  --adm-main: #5f7a45;
+  --adm-text: #2b2d28;
+  --adm-sub: #70756a;
+  --adm-bg: #ffffff;
+  --adm-soft: #f4f5f2;
+  --adm-err: #c0392b;
+  width: min(820px, 100%);
+  height: min(86vh, 900px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #2b2d28;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.adm-sheet-head,
+.adm-sheet-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--adm-soft);
+}
+
+.adm-sheet-foot {
+  justify-content: flex-end;
+}
+
+.adm-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--adm-line);
+  border-bottom: 1px solid var(--adm-line);
+}
+
+.adm-bar.off {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.adm-sheet-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.adm-rich,
+.adm-src {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 20px;
+  border: none;
+  outline: none;
+}
+
+.adm-rich {
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.adm-rich details.blocked-box summary {
+  cursor: text;
+}
+
+.adm-src {
+  font-family: Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: none;
+  color: #2b2d28;
+  background: #fbfbf9;
+}
+
+@media (max-width: 700px) {
+  .adm {
+    --adm-width: 100vw;
+  }
+}

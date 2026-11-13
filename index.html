@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="header-toolbar">
+      <div class="theme-toggle inline-toggle">
+        <label class="toggle-label">
+          <input type="checkbox" id="modeToggle" aria-label="다크 모드">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button class="music-toggle" id="musicPlayBtn" aria-label="음악 재생">♪</button>
+      <iframe id="music-player" title="music" width="0" height="0" style="display:none;" frameborder="0" allow="autoplay"></iframe>
+    </div>
+
+    <header id="main-header" class="fade-in-up" style="animation-delay: 0.1s;">
+      <img id="headerImg" alt="헤더 이미지" />
+    </header>
+
+    <div class="layout">
+
+      <button id="sidebarToggle" class="sidebar-toggle" aria-label="메뉴">☰</button>
+
+      <aside id="leftSidebar" class="sidebar left fade-in-up" style="animation-delay: 0.3s;">
+        <div class="profile">
+          <a href="#/home" class="profile-link" aria-label="홈">
+            <div class="avatar" id="avatar"></div>
+          </a>
+          <h1 class="name" id="siteName"></h1>
+          <p class="desc" id="siteDesc"></p>
+        </div>
+
+        <nav class="menu" id="menu"></nav>
+
+        <div class="social" id="socialBox">
+          <h4>SOCIALS</h4>
+          <div id="socials"></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="main-content"></main>
+
+      <aside class="right-floating-sidebar fade-in-up" id="bannerBox" style="animation-delay: 0.7s;">
+        <div class="social">
+          <h4>BANNER</h4>
+          <div class="my-banners" id="myBanners"></div>
+          <div class="external-banners" id="extBanners"></div>
+        </div>
+      </aside>
+    </div>
+
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="위로가기">↑</button>
+
+    <footer class="footer" id="footer"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
